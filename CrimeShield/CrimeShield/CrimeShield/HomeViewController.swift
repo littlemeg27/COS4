@@ -7,9 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
+    @IBAction func CreateReportButton(_ sender: Any)
+    {
+        
+    }
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
