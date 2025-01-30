@@ -35,7 +35,7 @@ class CreateViewController: UIViewController
         let alertController = UIAlertController(title: "Saved", message: "The Report has been Saved!", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default)
             {
-                _ in
+                _ in    LONG_BIT
                 self.navigationController?.popViewController(animated: true)
             }
             alertController.addAction(okAction)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController
+class HomeViewController: UIViewController
 {
     @IBAction func CreateReportButton(_ sender: Any)
     {
@@ -18,6 +18,9 @@ class ViewController: UIViewController
     {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+       
+    
     }
 
 

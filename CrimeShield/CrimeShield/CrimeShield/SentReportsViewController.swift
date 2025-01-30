@@ -19,7 +19,7 @@ class SentReportsViewController: UIViewController, UITableViewDelegate, UITableV
         savedReports = fetchReportsFromUserDefaults().compactMap { Report(from: $0) }
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "PostCell")
+        tableView.register(UINib(nibName: "ReportsTableViewCell", bundle: nil), forCellReuseIdentifier: "PostCell")
     }
 
     func fetchReportsFromUserDefaults() -> [[String: String]]
@@ -34,10 +34,15 @@ class SentReportsViewController: UIViewController, UITableViewDelegate, UITableV
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
-        let report = savedReports[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as? ReportsTableViewCell else
+        {
+            fatalError("Could not dequeue cell with identifier PostCell")
+        }
 
-        cell.textLabel?.text = "\(report.lastName), \(report.firstName) - \(report.selectedDate)"
+        let report = savedReports[indexPath.row]
+        cell.lastName.text = report.lastName
+        cell.selectedDate.text = report.selectedDate
+
         return cell
     }
 
@@ -55,3 +60,6 @@ class SentReportsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
 }
+
+
+
